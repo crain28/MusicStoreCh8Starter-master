@@ -1,0 +1,24 @@
+﻿@model ArtistViewModel 
+@{
+    ViewData["Title"] = "Artists and Albums";
+}
+<div class="row">
+    <h1 class="text-center col-md-12">@ViewBag.Title</h1>
+    <div class="col-md-4">
+        @foreach (Artist artist in Model.Artist)
+        {
+        <h4>@artist.Name</h4>
+        <ul>
+            @foreach (Album album in Model.Album)
+            {
+                @if (artist.ArtistId == album.ArtistId)
+                {
+                    <li>@album.Title</li>
+                }
+            }
+        </ul>
+        }
+
+    </div>
+    <img src="~/images/rock.jpg" style="width:100%;z-index:1;border-radius:30px;" class="col-md-8 img-fluid shadow"/>
+</div>
